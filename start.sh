@@ -9,6 +9,8 @@ if [[ -n $RCLONE_CONFIG && -n $RCLONE_DESTINATION ]]; then
 	chmod +x on-complete.sh
 fi
 
+chmod +x ./cloudreve
+nohup ./cloudreve > cloudreve.file 2>&1 &   
 echo "rpc-secret=$ARIA2C_SECRET" >> aria2c.conf
 aria2c --conf-path=aria2c.conf&
 yarn start
